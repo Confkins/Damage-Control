@@ -1,4 +1,5 @@
 sceneSetups:
-- path: Assets/Protoype.unity
+- path: C:/Users/Connor/Documents/College/Year 4/Games Engines 2/GE2-2018-2019/GE2Examples/Assets/Scenes/Offset
+    Pursue.unity
   isLoaded: 1
   isActive: 1
