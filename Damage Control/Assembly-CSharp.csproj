@@ -49,7 +49,8 @@
      <Compile Include="Assets\Camera Contoller.cs" />
      <Compile Include="Assets\MoveTo.cs" />
      <Compile Include="Assets\MoveToClickPoint.cs" />
-     <Compile Include="Assets\Pawn Controller.cs" />
+     <Compile Include="Assets\PawnSuper.cs" />
+     <Compile Include="Assets\Selector.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
