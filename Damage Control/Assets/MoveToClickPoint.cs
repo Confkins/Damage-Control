@@ -7,7 +7,7 @@ public class MoveToClickPoint : MonoBehaviour
 {
 
     public bool isSelected;
-    NavMeshAgent agent;
+    public NavMeshAgent agent;
 
     void Start()
     {
