@@ -8,6 +8,7 @@ public class PawnSuper : MonoBehaviour {
     public bool isSelected;
     public NavMeshAgent agent;
     public Collider colliderID;
+    public int SparePartCounter;
 
     public IEnumerator Selector()
     {
@@ -36,7 +37,7 @@ public class PawnSuper : MonoBehaviour {
         if (Input.GetMouseButtonDown(1) && isSelected)
         {
             RaycastHit hit;
-
+            
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 agent.destination = hit.point;
@@ -44,3 +45,4 @@ public class PawnSuper : MonoBehaviour {
         }
     }
 }
+
