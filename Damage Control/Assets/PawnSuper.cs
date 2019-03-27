@@ -12,19 +12,22 @@ public class PawnSuper : MonoBehaviour {
 
     public IEnumerator Selector()
     {
-        if (Input.GetMouseButtonDown(0))
+        while (1 == 1)
         {
-            RaycastHit hit;
-
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if (Input.GetMouseButtonDown(0))
             {
-                if (hit.collider == colliderID)
+                RaycastHit hit;
+
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
                 {
-                    isSelected = true;
-                }
-                else
-                {
-                    isSelected = false;
+                    if (hit.collider == colliderID)
+                    {
+                        isSelected = true;
+                    }
+                    else
+                    {
+                        isSelected = false;
+                    }
                 }
             }
         }
@@ -33,7 +36,6 @@ public class PawnSuper : MonoBehaviour {
 
     public void MoveToClick ()
     {
-        StartCoroutine("Selector");
         if (Input.GetMouseButtonDown(1) && isSelected)
         {
             RaycastHit hit;

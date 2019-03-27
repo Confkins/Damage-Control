@@ -6,53 +6,26 @@ public class SystemSuper : MonoBehaviour
 {
     public int hitPointCounter;
     public int maxHitPoints;
-    public GameObject system;
-    public int radius = 30;
-    public int sparePartCounter;
-
+    public GameObject subSystem;
+    public int radius = 2;
+    public int sparePartCounter = 0;
 
     public void Dismantle()
     {
         Debug.Log(hitPointCounter);
-        Vector3 origin = system.transform.position;
+        Debug.Log(sparePartCounter);
 
         if (hitPointCounter > 0)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(origin, radius);
-
-            for (int i = 0; i < hitColliders.Length; i++)
+            while (hitPointCounter != 0)
             {
-                if (hitColliders[i].tag == "pawn")
-                {
-                    Debug.Log("Somebody Kill Me");
-                    while (hitPointCounter != 0)
-                    {
-                        hitPointCounter--;
-                        sparePartCounter++;
-                    }
-                }
+                hitPointCounter--;
+                sparePartCounter++;
             }
         }
     }
 
     public void Repair()
-    {
-        if (hitPointCounter < maxHitPoints)
-        {
-            RaycastHit hit;
-            Vector3 origin = system.transform.position;
-
-            if (Physics.SphereCast(origin, radius, origin, out hit, 10))
-            {
-                if (hit.collider.tag == "Pawn")
-                {
-                    while (hitPointCounter != maxHitPoints)
-                    {
-                        hitPointCounter++;
-                        sparePartCounter--;
-                    }
-                }
-            }
-        }
+    {   
     }
 }

@@ -14,12 +14,12 @@ public class Pawn : PawnSuper
     void Start()
     {
         this.agent = GetComponent<NavMeshAgent>();
+        StartCoroutine("Selector");
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine("Selector");
         MoveToClick();
     }
 }
