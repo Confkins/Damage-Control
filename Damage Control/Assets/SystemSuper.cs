@@ -12,16 +12,13 @@ public class SystemSuper : MonoBehaviour
 
     public void Dismantle()
     {
-        Debug.Log(hitPointCounter);
-        Debug.Log(sparePartCounter);
+        //Debug.Log(hitPointCounter);
+        //Debug.Log(sparePartCounter);
 
-        if (hitPointCounter > 0)
+        while (hitPointCounter != 0)
         {
-            while (hitPointCounter != 0)
-            {
-                hitPointCounter--;
-                sparePartCounter++;
-            }
+            hitPointCounter--;
+            sparePartCounter++;
         }
     }
 

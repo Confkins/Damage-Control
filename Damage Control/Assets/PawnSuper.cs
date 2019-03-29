@@ -30,8 +30,8 @@ public class PawnSuper : MonoBehaviour {
                     }
                 }
             }
+            yield return null;
         }
-        yield return null;
     }
 
     public void MoveToClick ()
