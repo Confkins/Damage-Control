@@ -21,5 +21,6 @@ public class Pawn : PawnSuper
     void Update()
     {
         MoveToClick();
+        ChooseAction();
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class PawnSuper : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class PawnSuper : MonoBehaviour {
     public NavMeshAgent agent;
     public Collider colliderID;
     public int SparePartCounter;
+    public GameObject ButtonPrefab;
+    public Transform gameCanvas;
 
     public IEnumerator Selector()
     {
@@ -46,5 +49,20 @@ public class PawnSuper : MonoBehaviour {
             }
         }
     }
-}
 
+    public void ChooseAction()
+    {
+        if (Input.GetMouseButtonDown(1) && isSelected)
+        {
+            RaycastHit hit;
+
+            if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            {
+                if (hit.collider.tag ==  "System")
+                {
+                    GameObject menubutton1 = Instantiate(ButtonPrefab, gameCanvas.transform.position, gameCanvas.rotation, gameCanvas);
+                }
+            }
+        }
+    }
+}
