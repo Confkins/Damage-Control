@@ -8,23 +8,36 @@ public class SystemSuper : MonoBehaviour
     public int maxHitPoints;
     public GameObject subSystem;
     public int radius = 3;
-    public int sparePartCounter = 0;
+    public static int sparePartCounter = 0;
     public BoxCollider operationalRange;
 
     public void Dismantle()
     {
-        Debug.Log(hitPointCounter);
-        Debug.Log(sparePartCounter);
+        StartCoroutine("dismantleTime");
+    }
 
+    public void Repair()
+    {
+        StartCoroutine("repairTime");
+    }
+
+    public IEnumerator dismantleTime()
+    {
         while (hitPointCounter != 0)
         {
+            yield return new WaitForSeconds(1);
             hitPointCounter--;
             sparePartCounter++;
         }
     }
 
-    public void Repair()
+    public IEnumerator repairTime()
     {
-           
+        while (hitPointCounter != maxHitPoints)
+        {
+            yield return new WaitForSeconds(1);
+            hitPointCounter++;
+            sparePartCounter--;
+        }
     }
 }
