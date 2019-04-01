@@ -61,6 +61,7 @@ public class PawnSuper : MonoBehaviour {
                 if (hit.collider.tag ==  "System")
                 {
                     GameObject menubutton1 = Instantiate(ButtonPrefab, gameCanvas.transform.position, gameCanvas.rotation, gameCanvas);
+                    menubutton1.GetComponent<RectTransform>().position = Input.mousePosition;
                 }
             }
         }

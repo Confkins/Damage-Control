@@ -21,6 +21,11 @@ public class SystemSuper : MonoBehaviour
         StartCoroutine("repairTime");
     }
 
+    public void DoorClose()
+    {
+        subSystem.transform.Translate(Vector3.back * Time.deltaTime);
+    }
+
     public IEnumerator dismantleTime()
     {
         while (hitPointCounter != 0)
@@ -39,5 +44,19 @@ public class SystemSuper : MonoBehaviour
             hitPointCounter++;
             sparePartCounter--;
         }
+    }
+
+    public IEnumerator openDoor()
+    {
+        Vector3 origin = subSystem.transform.position;
+        Debug.Log(origin);
+        subSystem.transform.Translate(Vector3.forward * 300);
+
+        yield return new WaitForSeconds(3);
+        Debug.Log(origin);
+        subSystem.transform.position = origin;
+
+
+        yield return null;
     }
 }
