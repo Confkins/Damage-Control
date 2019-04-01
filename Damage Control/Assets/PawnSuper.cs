@@ -10,7 +10,9 @@ public class PawnSuper : MonoBehaviour {
     public NavMeshAgent agent;
     public Collider colliderID;
     public int SparePartCounter;
-    public GameObject ButtonPrefab;
+    public GameObject ButtonPrefab1;
+    public GameObject ButtonPrefab2;
+    public GameObject ButtonPrefab3;
     public Transform gameCanvas;
 
     public IEnumerator Selector()
@@ -58,10 +60,28 @@ public class PawnSuper : MonoBehaviour {
 
             if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
+                Debug.Log(hit.transform.position);
                 if (hit.collider.tag ==  "System")
                 {
-                    GameObject menubutton1 = Instantiate(ButtonPrefab, gameCanvas.transform.position, gameCanvas.rotation, gameCanvas);
-                    menubutton1.GetComponent<RectTransform>().position = Input.mousePosition;
+                    Vector3 place = hit.transform.position;
+                    Vector3 offset = new Vector3(0,0,1);
+                    place.y = gameCanvas.transform.position.y;
+
+                    Vector3 buttonPos1 = place;
+                    Vector3 buttonPos2 = place - offset;
+                    Vector3 buttonPos3 = place - (offset*2);
+
+                    Debug.Log(buttonPos1);
+                    Debug.Log(buttonPos2);
+                    Debug.Log(buttonPos3);
+
+                    GameObject menubutton1 = Instantiate(ButtonPrefab1, gameCanvas.transform.position, gameCanvas.rotation, gameCanvas);
+                    GameObject menubutton2 = Instantiate(ButtonPrefab2, gameCanvas.transform.position, gameCanvas.rotation, gameCanvas);
+                    GameObject menubutton3 = Instantiate(ButtonPrefab3, gameCanvas.transform.position, gameCanvas.rotation, gameCanvas);
+
+                    menubutton1.GetComponent<RectTransform>().position = buttonPos1;
+                    menubutton2.GetComponent<RectTransform>().position = buttonPos2;
+                    menubutton3.GetComponent<RectTransform>().position = buttonPos3;
                 }
             }
         }
