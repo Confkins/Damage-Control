@@ -60,7 +60,6 @@ public class PawnSuper : MonoBehaviour {
 
             if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
-                Debug.Log(hit.transform.position);
                 if (hit.collider.tag ==  "System")
                 {
                     Vector3 place = hit.transform.position;
@@ -71,17 +70,9 @@ public class PawnSuper : MonoBehaviour {
                     Vector3 buttonPos2 = place - offset;
                     Vector3 buttonPos3 = place - (offset*2);
 
-                    Debug.Log(buttonPos1);
-                    Debug.Log(buttonPos2);
-                    Debug.Log(buttonPos3);
-
-                    GameObject menubutton1 = Instantiate(ButtonPrefab1, gameCanvas.transform.position, gameCanvas.rotation, gameCanvas);
-                    GameObject menubutton2 = Instantiate(ButtonPrefab2, gameCanvas.transform.position, gameCanvas.rotation, gameCanvas);
-                    GameObject menubutton3 = Instantiate(ButtonPrefab3, gameCanvas.transform.position, gameCanvas.rotation, gameCanvas);
-
-                    menubutton1.GetComponent<RectTransform>().position = buttonPos1;
-                    menubutton2.GetComponent<RectTransform>().position = buttonPos2;
-                    menubutton3.GetComponent<RectTransform>().position = buttonPos3;
+                    GameObject menubutton1 = Instantiate(ButtonPrefab1, buttonPos1, gameCanvas.rotation, gameCanvas);
+                    GameObject menubutton2 = Instantiate(ButtonPrefab2, buttonPos2, gameCanvas.rotation, gameCanvas);
+                    GameObject menubutton3 = Instantiate(ButtonPrefab3, buttonPos3, gameCanvas.rotation, gameCanvas);
                 }
             }
         }
