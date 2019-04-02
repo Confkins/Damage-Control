@@ -10,9 +10,12 @@ public class PawnSuper : MonoBehaviour {
     public NavMeshAgent agent;
     public Collider colliderID;
     public int SparePartCounter;
-    public GameObject ButtonPrefab1;
-    public GameObject ButtonPrefab2;
-    public GameObject ButtonPrefab3;
+    public Button ButtonPrefab1;
+    public Button ButtonPrefab2;
+    public Button ButtonPrefab3;
+    public Button menubutton1;
+    public Button menubutton2;
+    public Button menubutton3;
     public Transform gameCanvas;
 
     public IEnumerator Selector()
@@ -70,11 +73,22 @@ public class PawnSuper : MonoBehaviour {
                     Vector3 buttonPos2 = place - offset;
                     Vector3 buttonPos3 = place - (offset*2);
 
-                    GameObject menubutton1 = Instantiate(ButtonPrefab1, buttonPos1, gameCanvas.rotation, gameCanvas);
-                    GameObject menubutton2 = Instantiate(ButtonPrefab2, buttonPos2, gameCanvas.rotation, gameCanvas);
-                    GameObject menubutton3 = Instantiate(ButtonPrefab3, buttonPos3, gameCanvas.rotation, gameCanvas);
+                    menubutton1 = Instantiate(ButtonPrefab1, buttonPos1, gameCanvas.rotation, gameCanvas);
+                    menubutton2 = Instantiate(ButtonPrefab2, buttonPos2, gameCanvas.rotation, gameCanvas);
+                    menubutton3 = Instantiate(ButtonPrefab3, buttonPos3, gameCanvas.rotation, gameCanvas);
+
+                    menubutton1.onClick.AddListener(destroyButton);
+                    menubutton2.onClick.AddListener(destroyButton);
+                    menubutton3.onClick.AddListener(destroyButton);
                 }
             }
         }
+    }
+
+    void destroyButton()
+    {
+        Destroy(menubutton1.gameObject);
+        Destroy(menubutton2.gameObject);
+        Destroy(menubutton3.gameObject);
     }
 }
