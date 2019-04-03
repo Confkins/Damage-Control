@@ -65,6 +65,13 @@ public class PawnSuper : MonoBehaviour {
             {
                 if (hit.collider.tag ==  "System")
                 {
+                    gameObject.tag = "Pawn";
+
+                    if (menubutton1)
+                    {
+                        destroyButton();
+                    }
+
                     Vector3 place = hit.transform.position;
                     Vector3 offset = new Vector3(0,0,1);
                     place.y = gameCanvas.transform.position.y;
@@ -77,13 +84,18 @@ public class PawnSuper : MonoBehaviour {
                     menubutton2 = Instantiate(ButtonPrefab2, buttonPos2, gameCanvas.rotation, gameCanvas);
                     menubutton3 = Instantiate(ButtonPrefab3, buttonPos3, gameCanvas.rotation, gameCanvas);
 
-                    menubutton1.onClick.AddListener(destroyButton);
-                    menubutton2.onClick.AddListener(destroyButton);
-                    menubutton3.onClick.AddListener(destroyButton);
+                    if (menubutton1 != null)
+                    {
+                        menubutton1.onClick.AddListener(destroyButton);
+                        menubutton2.onClick.AddListener(destroyButton);
+                        menubutton3.onClick.AddListener(destroyButton);
 
-                    menubutton1.onClick.AddListener(setPlayerAsDismantle);
-                    menubutton2.onClick.AddListener(setPlayerAsRepair);
-                    menubutton3.onClick.AddListener(stopPlayer);
+                        menubutton1.onClick.AddListener(setPlayerAsDismantle);
+                        menubutton2.onClick.AddListener(setPlayerAsRepair);
+                        menubutton3.onClick.AddListener(stopPlayer);
+                    }
+
+                    StartCoroutine("killMenu");
                 }
             }
         }
@@ -108,6 +120,16 @@ public class PawnSuper : MonoBehaviour {
 
     void stopPlayer()
     {
+        agent.destination = agent.transform.position;
+    }
 
+    public IEnumerator killMenu()
+    {
+        yield return new WaitForSeconds(5);
+        if (menubutton1 != null)
+        {
+            destroyButton();
+        }
+        yield return null;
     }
 }

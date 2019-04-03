@@ -57,7 +57,6 @@
      <Compile Include="Assets\CameraMovement.cs" />
      <Compile Include="Assets\Doors.cs" />
      <Compile Include="Assets\MoveTo.cs" />
-     <Compile Include="Assets\MoveToClickPoint.cs" />
      <Compile Include="Assets\Pawn.cs" />
      <Compile Include="Assets\PawnSuper.cs" />
      <Compile Include="Assets\Selector.cs" />

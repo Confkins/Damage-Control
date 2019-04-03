@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     public Camera cam;
-    public int edge = 30;
+    public int edge = 20;
     public int scrollSpeed = 1;
     private Vector3 scroller;
     public Bounds bBox;
