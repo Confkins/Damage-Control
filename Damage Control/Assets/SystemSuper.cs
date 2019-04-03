@@ -11,22 +11,12 @@ public class SystemSuper : MonoBehaviour
     public static int sparePartCounter = 0;
     public BoxCollider operationalRange;
 
-    public void Dismantle()
-    {
-        StartCoroutine("dismantleTime");
-    }
-
-    public void Repair()
-    {
-        StartCoroutine("repairTime");
-    }
-
     public void DoorClose()
     {
         subSystem.transform.Translate(Vector3.back * Time.deltaTime);
     }
 
-    public IEnumerator dismantleTime()
+    public IEnumerator dismantle()
     {
         while (hitPointCounter != 0)
         {
@@ -36,7 +26,7 @@ public class SystemSuper : MonoBehaviour
         }
     }
 
-    public IEnumerator repairTime()
+    public IEnumerator repair()
     {
         while (hitPointCounter != maxHitPoints)
         {

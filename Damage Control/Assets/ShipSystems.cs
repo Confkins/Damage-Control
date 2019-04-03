@@ -7,7 +7,7 @@ public class ShipSystems : SystemSuper
     public ShipSystems()
     {
         hitPointCounter = 10;
-
+        maxHitPoints = 10;
     }
 
     void Start()
@@ -24,7 +24,25 @@ public class ShipSystems : SystemSuper
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
-        Dismantle();
+        if(other.gameObject.tag == "DismantlePawn")
+        {
+            StartCoroutine("dismantle");
+        }
+        if(other.gameObject.tag == "RepairPawn")
+        {
+            StartCoroutine("repair");
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "DismantlePawn")
+        {
+            StopCoroutine("dismantle");
+        }
+        if (other.gameObject.tag == "RepairPawn")
+        {
+            StopCoroutine("repair");
+        }
     }
 }

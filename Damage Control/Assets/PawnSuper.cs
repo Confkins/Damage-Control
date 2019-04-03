@@ -13,9 +13,9 @@ public class PawnSuper : MonoBehaviour {
     public Button ButtonPrefab1;
     public Button ButtonPrefab2;
     public Button ButtonPrefab3;
-    public Button menubutton1;
-    public Button menubutton2;
-    public Button menubutton3;
+    Button menubutton1;
+    Button menubutton2;
+    Button menubutton3;
     public Transform gameCanvas;
 
     public IEnumerator Selector()
@@ -80,6 +80,10 @@ public class PawnSuper : MonoBehaviour {
                     menubutton1.onClick.AddListener(destroyButton);
                     menubutton2.onClick.AddListener(destroyButton);
                     menubutton3.onClick.AddListener(destroyButton);
+
+                    menubutton1.onClick.AddListener(setPlayerAsDismantle);
+                    menubutton2.onClick.AddListener(setPlayerAsRepair);
+                    menubutton3.onClick.AddListener(stopPlayer);
                 }
             }
         }
@@ -90,5 +94,20 @@ public class PawnSuper : MonoBehaviour {
         Destroy(menubutton1.gameObject);
         Destroy(menubutton2.gameObject);
         Destroy(menubutton3.gameObject);
+    }
+
+    void setPlayerAsRepair()
+    {
+        gameObject.tag = "RepairPawn";
+    }
+
+    void setPlayerAsDismantle()
+    {
+        gameObject.tag = "DismantlePawn";
+    }
+
+    void stopPlayer()
+    {
+
     }
 }
