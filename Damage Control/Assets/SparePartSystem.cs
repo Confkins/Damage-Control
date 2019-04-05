@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class SparePartSystem : SystemSuper
 {
-    public Text sparePartText;
+    public TMP_Text sparePartText;
 
     // Start is called before the first frame update
     void Start()

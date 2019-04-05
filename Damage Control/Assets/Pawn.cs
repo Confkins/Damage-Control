@@ -14,6 +14,7 @@ public class Pawn : PawnSuper
     void Start()
     {
         this.agent = GetComponent<NavMeshAgent>();
+        agent.speed = 2;
         StartCoroutine("Selector");
     }
 

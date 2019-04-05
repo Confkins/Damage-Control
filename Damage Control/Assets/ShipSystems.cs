@@ -32,6 +32,10 @@ public class ShipSystems : SystemSuper
         {
             StartCoroutine("repair");
         }
+        if (other.gameObject.tag == "Missile")
+        {
+            hitPointCounter--;
+        }
     }
 
     public void OnTriggerExit(Collider other)
