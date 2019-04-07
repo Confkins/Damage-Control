@@ -34,11 +34,15 @@ public class SystemSuper : MonoBehaviour
 
     public IEnumerator repair()
     {
+
         while (hitPointCounter != maxHitPoints)
         {
-            yield return new WaitForSeconds(1);
-            hitPointCounter++;
-            sparePartCounter--;
+            if (sparePartCounter > 0)
+            {
+                yield return new WaitForSeconds(1);
+                hitPointCounter++;
+                sparePartCounter--;
+            }
         }
     }
 

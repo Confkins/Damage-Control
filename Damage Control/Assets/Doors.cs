@@ -19,7 +19,9 @@ public class Doors : SystemSuper
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
-        StartCoroutine("openDoor");
+        if(other.gameObject.tag != "Missile")
+        {
+            StartCoroutine("openDoor");
+        }
     }
 }
