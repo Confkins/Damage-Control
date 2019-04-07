@@ -6,8 +6,8 @@ public class ShipSystems : SystemSuper
 {
     public ShipSystems()
     {
-        hitPointCounter = 10;
-        maxHitPoints = 10;
+        hitPointCounter = 10.0f;
+        maxHitPoints = 10.0f;
     }
 
     void Start()
@@ -22,9 +22,16 @@ public class ShipSystems : SystemSuper
         operationalRange.isTrigger = true;
     }
 
+    void Update()
+    {
+        updateHealthbar();
+    }
+
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "DismantlePawn")
+        createHealthbar();
+
+        if (other.gameObject.tag == "DismantlePawn")
         {
             StartCoroutine("dismantle");
         }
@@ -41,6 +48,8 @@ public class ShipSystems : SystemSuper
 
     public void OnTriggerExit(Collider other)
     {
+        destroyHealthbar();
+ 
         if (other.gameObject.tag == "DismantlePawn")
         {
             StopCoroutine("dismantle");

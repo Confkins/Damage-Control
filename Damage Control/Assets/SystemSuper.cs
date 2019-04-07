@@ -1,15 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SystemSuper : MonoBehaviour
 {
-    public int hitPointCounter;
-    public int maxHitPoints;
+    public float hitPointCounter;
+    public float maxHitPoints;
     public GameObject subSystem;
     public int radius = 3;
     public static int sparePartCounter = 0;
     public BoxCollider operationalRange;
+    public Slider healthbarPrefab;
+    public Transform healthCanvas;
+    public float healthpoint;
+    Slider healthbar;
+
 
     public void DoorClose()
     {
@@ -48,5 +54,27 @@ public class SystemSuper : MonoBehaviour
 
 
         yield return null;
+    }
+
+    public void createHealthbar()
+    {
+        Vector3 place = subSystem.transform.position;
+        place.y = healthCanvas.transform.position.y;
+        healthbar = Instantiate(healthbarPrefab, place, healthCanvas.rotation, healthCanvas);
+    }
+
+    public void updateHealthbar()
+    {
+        if(healthbar != null)
+        {
+            healthpoint = hitPointCounter / maxHitPoints;
+            healthbar.value = healthpoint;
+        }
+        
+    }
+
+    public void destroyHealthbar()
+    {
+        Destroy(healthbar.gameObject);
     }
 }
