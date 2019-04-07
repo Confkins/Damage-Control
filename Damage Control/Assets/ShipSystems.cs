@@ -34,6 +34,7 @@ public class ShipSystems : SystemSuper
         }
         if (other.gameObject.tag == "Missile")
         {
+            Destroy(other.gameObject);
             hitPointCounter--;
         }
     }
