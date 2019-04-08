@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class SystemSuper : MonoBehaviour
 {
+    public GameObject explosionPrefab;
+    public GameObject explosion;
     public float hitPointCounter;
     public float maxHitPoints;
     public GameObject subSystem;

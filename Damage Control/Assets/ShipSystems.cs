@@ -43,6 +43,8 @@ public class ShipSystems : SystemSuper
         {
             Destroy(other.gameObject);
             hitPointCounter--;
+            explosion = Instantiate(explosionPrefab, transform.position, transform.rotation);
+            explosion.transform.SetParent(transform);
         }
     }
 

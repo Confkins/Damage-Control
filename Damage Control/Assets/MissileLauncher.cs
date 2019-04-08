@@ -15,12 +15,10 @@ public class MissileLauncher : MonoBehaviour
     {
         missilePod = gameObject;
         StartCoroutine("loadMissile");
-        Debug.Log("This happened");
     }
 
     public IEnumerator loadMissile()
     {
-        Debug.Log("Coroutine Started happened");
         while (1==1)
         {
             yield return new WaitForSeconds(10);
@@ -30,7 +28,6 @@ public class MissileLauncher : MonoBehaviour
 
     void createMissile()
     {
-        Debug.Log("Function happened");
         missile = Instantiate(missilePrefab, missilePod.transform.position, missilePrefab.transform.rotation);
         missile.transform.SetParent(missilePod.transform);
     }
