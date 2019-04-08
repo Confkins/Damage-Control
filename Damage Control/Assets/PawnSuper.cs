@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using TMPro;
 
 public class PawnSuper : MonoBehaviour {
 
+    public GameObject pawn;
     public bool isSelected;
     public NavMeshAgent agent;
     public Collider colliderID;
@@ -17,6 +19,10 @@ public class PawnSuper : MonoBehaviour {
     Button menubutton2;
     Button menubutton3;
     public Transform gameCanvas;
+    public Transform healthCanvas;
+    public TMP_Text namePrefab;
+    TMP_Text pawnName;
+
 
     public IEnumerator Selector()
     {
@@ -131,5 +137,22 @@ public class PawnSuper : MonoBehaviour {
             destroyButton();
         }
         yield return null;
+    }
+
+    public void showName()
+    {
+        Vector3 place = pawn.transform.position;
+        place.y = healthCanvas.transform.position.y;
+        place.z = pawn.transform.position.z + 1;
+        pawnName = Instantiate(namePrefab, place, healthCanvas.rotation, healthCanvas);
+        pawnName.text = pawn.name;
+    }
+
+    public void updateName()
+    {
+        Vector3 place = pawn.transform.position;
+        place.y = healthCanvas.transform.position.y;
+        place.z = pawn.transform.position.z + 1;
+        pawnName.transform.position = place;
     }
 }

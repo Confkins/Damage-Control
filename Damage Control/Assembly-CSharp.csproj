@@ -56,6 +56,7 @@
      <Compile Include="Assets\ButtonBehaviours.cs" />
      <Compile Include="Assets\CameraMovement.cs" />
      <Compile Include="Assets\Doors.cs" />
+     <Compile Include="Assets\Exit.cs" />
      <Compile Include="Assets\Explosion.cs" />
      <Compile Include="Assets\HealthbarTEST.cs" />
      <Compile Include="Assets\MissileLauncher.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\MoveTo.cs" />
      <Compile Include="Assets\Pawn.cs" />
      <Compile Include="Assets\PawnSuper.cs" />
+     <Compile Include="Assets\Restart.cs" />
      <Compile Include="Assets\Selector.cs" />
      <Compile Include="Assets\ShipSystems.cs" />
      <Compile Include="Assets\SparePartSystem.cs" />

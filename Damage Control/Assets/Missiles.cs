@@ -30,5 +30,4 @@ public class Missiles : MonoBehaviour
         trajectory.y += 5 * Mathf.Sin(Mathf.Clamp01(FireTime) * Mathf.PI);
         transform.position = trajectory;
     }
-
 }

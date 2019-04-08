@@ -13,8 +13,10 @@ public class Pawn : PawnSuper
     // Start is called before the first frame update
     void Start()
     {
+        this.pawn = gameObject;
         this.agent = GetComponent<NavMeshAgent>();
         agent.speed = 2;
+        showName();
         StartCoroutine("Selector");
     }
 
@@ -23,5 +25,6 @@ public class Pawn : PawnSuper
     {
         MoveToClick();
         ChooseAction();
+        updateName();
     }
 }

@@ -21,7 +21,7 @@ public class MissileLauncher : MonoBehaviour
     {
         while (1==1)
         {
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(5);
             createMissile();
         }
     }

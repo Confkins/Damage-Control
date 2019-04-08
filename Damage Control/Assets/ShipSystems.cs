@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShipSystems : SystemSuper
 {
+    public bool done = false;
+
     public ShipSystems()
     {
         hitPointCounter = 10.0f;
@@ -20,11 +22,26 @@ public class ShipSystems : SystemSuper
         operationalRange = subSystem.GetComponent<BoxCollider>();
         operationalRange.size = new Vector3(radius,1,radius);
         operationalRange.isTrigger = true;
+        showName();
     }
 
     void Update()
     {
         updateHealthbar();
+        if(done == false)
+        {
+            if (subSystem.name == "AI CORE" && hitPointCounter < 1)
+            {
+                StartCoroutine("loseState");
+                done = true;
+            }
+
+            if (count == 0)
+            {
+                StartCoroutine("winState");
+                done = true;
+            }
+        }
     }
 
     public void OnTriggerEnter(Collider other)
